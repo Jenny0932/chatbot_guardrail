@@ -1,0 +1,37 @@
+# Core LLM and Evaluation Libraries
+openai
+python-dotenv
+langchain
+ragas
+datasets
+
+# fine-tuning and model training
+transformers  
+evaluate 
+accelerate
+torch 
+torchvision 
+torchaudio
+
+# Embedding Models and Similarity
+sentence-transformers
+scikit-learn
+
+# Vector Database (optional, if you simulate retrieval)
+faiss-cpu
+
+# General Utilities
+numpy
+pandas
+tqdm
+
+# Visualization (optional, for evaluation reports)
+matplotlib
+seaborn
+
+# Hugging Face Hub access (if needed)
+huggingface-hub
+huggingface_hub[hf_xet]
+
+# chatbot
+streamlit

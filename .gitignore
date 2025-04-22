@@ -1,0 +1,8 @@
+.venv/
+data/
+model/
+training/
+rag_evaluation_results/
+demo/
+.env
+*__pycache__/
