@@ -82,7 +82,11 @@ if st.session_state.messages[-1]["role"] != "assistant":
                     logging.info(f"Input class from LLM for '{prompt}': {llm_input_class}")
                     # Bert text classification for Guardrail
                     bert_input_class = input_classifier.bert_query_classifier(prompt)
-                    logging.info(f"Predicted class for '{prompt}': {bert_input_class}")
+                    logging.info(f"BERT:Predicted class for '{prompt}': {bert_input_class}")
+
+                     # Bart text classification for Guardrail
+                    bart_input_class = input_classifier.bart_query_classifier(prompt)
+                    logging.info(f"BART:Predicted class for '{prompt}': {bart_input_class}")
 
                     if llm_input_class not in ['service', 'product'] and bert_input_class not in ['service', 'product']:
                         st.write("Filtered Query. Sorry, I cannot answer this question. Please rephrase your question.")

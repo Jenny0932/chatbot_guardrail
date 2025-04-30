@@ -4,6 +4,7 @@ import json
 from transformers import AutoTokenizer
 from transformers import AutoModelForSequenceClassification
 import torch
+from transformers import pipeline
 from dotenv import load_dotenv
 load_dotenv('.env', override=True)  
 
@@ -105,3 +106,20 @@ class InputQueryClassifier:
         # Get the predicted class from the logits
         predicted_class_id = logits.argmax().item()
         return model.config.id2label[predicted_class_id]
+    
+
+    def bart_query_classifier(self, text):
+        """
+        Classify the input text using BART zero-shot-classification pipeline.
+        """
+        # Initialize the zero-shot-classification pipeline with BART
+        classifier = pipeline("zero-shot-classification", model="facebook/bart-large-mnli")
+
+        # Use the class_type as candidate labels
+        candidate_labels = self.class_type
+
+        # Perform classification
+        result = classifier(text, candidate_labels)
+
+        # Return the label with the highest score
+        return result['labels'][0]
